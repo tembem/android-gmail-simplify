@@ -12,6 +12,6 @@ import retrofit2.http.GET;
  */
 
 public interface ApiInterface {
-    @GET("inbox.json")
+    @GET("api/bonus")
     Call<List<Message>> getInbox();
 }

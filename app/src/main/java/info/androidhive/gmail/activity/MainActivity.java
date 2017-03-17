@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         // Star icon is clicked,
         // mark the message as important
         Message message = messages.get(position);
-        message.setImportant(!message.isImportant());
+//        message.setImportant(!message.isImportant());
         messages.set(position, message);
         mAdapter.notifyDataSetChanged();
     }
@@ -191,9 +191,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         } else {
             // read the message which removes bold from the row
             Message message = messages.get(position);
-            message.setRead(true);
+//            message.setRead(true);
             messages.set(position, message);
             mAdapter.notifyDataSetChanged();
+
+            enableActionMode(position);
 
             Toast.makeText(getApplicationContext(), "Read: " + message.getMessage(), Toast.LENGTH_SHORT).show();
         }

@@ -46,14 +46,14 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
     private static int currentSelectedIndex = -1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
-        public TextView from, subject, message, iconText, timestamp;
+        public TextView subject, message, iconText, timestamp;
         public ImageView iconImp, imgProfile;
         public LinearLayout messageContainer;
         public RelativeLayout iconContainer, iconBack, iconFront;
 
         public MyViewHolder(View view) {
             super(view);
-            from = (TextView) view.findViewById(R.id.from);
+//            from = (TextView) view.findViewById(R.id.from);
             subject = (TextView) view.findViewById(R.id.txt_primary);
             message = (TextView) view.findViewById(R.id.txt_secondary);
             iconText = (TextView) view.findViewById(R.id.icon_text);
@@ -97,13 +97,13 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         Message message = messages.get(position);
 
         // displaying text view data
-        holder.from.setText(message.getFrom());
+//        holder.from.setText(message.getFrom());
         holder.subject.setText(message.getSubject());
         holder.message.setText(message.getMessage());
         holder.timestamp.setText(message.getTimestamp());
 
         // displaying the first letter of From in icon text
-        holder.iconText.setText(message.getFrom().substring(0, 1));
+        holder.iconText.setText(message.getSubject().substring(0, 1));
 
         // change the row state to activated
         holder.itemView.setActivated(selectedItems.get(position, false));
@@ -215,27 +215,31 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
     }
 
     private void applyImportant(MyViewHolder holder, Message message) {
-        if (message.isImportant()) {
-            holder.iconImp.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_star_black_24dp));
-            holder.iconImp.setColorFilter(ContextCompat.getColor(mContext, R.color.icon_tint_selected));
-        } else {
-            holder.iconImp.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_star_border_black_24dp));
-            holder.iconImp.setColorFilter(ContextCompat.getColor(mContext, R.color.icon_tint_normal));
-        }
+//        if (message.isImportant()) {
+//            holder.iconImp.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_star_black_24dp));
+//            holder.iconImp.setColorFilter(ContextCompat.getColor(mContext, R.color.icon_tint_selected));
+//        } else {
+//            holder.iconImp.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_star_border_black_24dp));
+//            holder.iconImp.setColorFilter(ContextCompat.getColor(mContext, R.color.icon_tint_normal));
+//        }
     }
 
     private void applyReadStatus(MyViewHolder holder, Message message) {
-        if (message.isRead()) {
-            holder.from.setTypeface(null, Typeface.NORMAL);
-            holder.subject.setTypeface(null, Typeface.NORMAL);
-            holder.from.setTextColor(ContextCompat.getColor(mContext, R.color.subject));
-            holder.subject.setTextColor(ContextCompat.getColor(mContext, R.color.message));
-        } else {
-            holder.from.setTypeface(null, Typeface.BOLD);
-            holder.subject.setTypeface(null, Typeface.BOLD);
-            holder.from.setTextColor(ContextCompat.getColor(mContext, R.color.from));
-            holder.subject.setTextColor(ContextCompat.getColor(mContext, R.color.subject));
-        }
+//        if (message.isRead()) {
+//            holder.from.setTypeface(null, Typeface.NORMAL);
+//            holder.subject.setTypeface(null, Typeface.NORMAL);
+//            holder.from.setTextColor(ContextCompat.getColor(mContext, R.color.subject));
+//            holder.subject.setTextColor(ContextCompat.getColor(mContext, R.color.message));
+//        } else {
+//            holder.from.setTypeface(null, Typeface.BOLD);
+//            holder.subject.setTypeface(null, Typeface.BOLD);
+//            holder.from.setTextColor(ContextCompat.getColor(mContext, R.color.from));
+//            holder.subject.setTextColor(ContextCompat.getColor(mContext, R.color.subject));
+//        }
+
+        holder.subject.setTypeface(null, Typeface.NORMAL);
+        holder.subject.setTextColor(ContextCompat.getColor(mContext, R.color.subject));
+        holder.message.setTextColor(ContextCompat.getColor(mContext, R.color.message));
     }
 
     @Override

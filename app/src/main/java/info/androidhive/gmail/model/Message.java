@@ -7,13 +7,10 @@ package info.androidhive.gmail.model;
 
 public class Message {
     private int id;
-    private String from;
     private String subject;
     private String message;
     private String timestamp;
     private String picture;
-    private boolean isImportant;
-    private boolean isRead;
     private int color = -1;
 
     public Message() {
@@ -25,14 +22,6 @@ public class Message {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
     }
 
     public String getSubject() {
@@ -59,28 +48,12 @@ public class Message {
         this.timestamp = timestamp;
     }
 
-    public boolean isImportant() {
-        return isImportant;
-    }
-
-    public void setImportant(boolean important) {
-        isImportant = important;
-    }
-
     public String getPicture() {
         return picture;
     }
 
     public void setPicture(String picture) {
         this.picture = picture;
-    }
-
-    public boolean isRead() {
-        return isRead;
-    }
-
-    public void setRead(boolean read) {
-        isRead = read;
     }
 
     public int getColor() {
