@@ -12,7 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 //    public static final String BASE_URL = "http://api.androidhive.info/json/";
-    public static final String BASE_URL = "http://10.0.2.2/test-api/";
+//    public static final String BASE_URL = "http://10.0.2.2/test-api/";
+    public static final String BASE_URL = "http://172.17.10.248/test-api/";
     private static Retrofit retrofit = null;
     
     public static Retrofit getClient() {
