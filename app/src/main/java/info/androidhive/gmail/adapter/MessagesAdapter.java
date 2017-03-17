@@ -46,7 +46,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
     private static int currentSelectedIndex = -1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
-        public TextView subject, message, iconText, timestamp;
+        public TextView subject, message, iconText, iconTextQuantity, timestamp;
         public ImageView imgProfile, imgAdd, imgSubtract;
         public LinearLayout messageContainer;
         public RelativeLayout iconContainer, iconBack, iconFront;
@@ -57,6 +57,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             subject = (TextView) view.findViewById(R.id.txt_primary);
             message = (TextView) view.findViewById(R.id.txt_secondary);
             iconText = (TextView) view.findViewById(R.id.icon_text);
+            iconTextQuantity = (TextView) view.findViewById(R.id.icon_text_quantity);
             timestamp = (TextView) view.findViewById(R.id.timestamp);
             iconBack = (RelativeLayout) view.findViewById(R.id.icon_back);
             iconFront = (RelativeLayout) view.findViewById(R.id.icon_front);
@@ -129,7 +130,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         holder.imgSubtract.setImageResource(R.drawable.bg_circle);
     }
 
-    private void applyClickEvents(MyViewHolder holder, final int position) {
+    private void applyClickEvents(final MyViewHolder holder, final int position) {
         holder.iconContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,6 +167,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
                 Message message = messages.get(position);
                 int quantity = message.getQuantity();
                 message.setQuantity(quantity + 1);
+                holder.iconTextQuantity.setText(String.valueOf(message.getQuantity()));
 
                 listener.onAddClicked(position);
             }
@@ -179,6 +181,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
                 if (quantity > 0) {
                     message.setQuantity(quantity - 1);
                 }
+                holder.iconTextQuantity.setText(String.valueOf(message.getQuantity()));
 
                 listener.onSubtractClicked(position);
             }

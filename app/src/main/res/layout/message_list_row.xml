@@ -70,11 +70,14 @@
                 android:layout_height="@dimen/icon_width_height"
                 android:src="@drawable/bg_circle" />
 
-            <ImageView
-                android:layout_width="25dp"
+            <TextView
+                android:id="@+id/icon_text_quantity"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_done_white_24dp" />
+                android:text="10"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/icon_text" />
         </RelativeLayout>
 
         <RelativeLayout
