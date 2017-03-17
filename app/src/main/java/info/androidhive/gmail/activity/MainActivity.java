@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         enableActionMode(position);
 
-        Toast.makeText(getApplicationContext(), "Add: " + message.getSubject(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Add: " + message.getSubject() + ". Qty: " + message.getQuantity(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         enableActionMode(position);
 
-        Toast.makeText(getApplicationContext(), "Subtract: " + message.getSubject(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Subtract: " + message.getSubject() + ". Qty: " + message.getQuantity(), Toast.LENGTH_SHORT).show();
     }
 
     private void enableActionMode(int position) {

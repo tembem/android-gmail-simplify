@@ -11,6 +11,25 @@ public class Message {
     private String message;
     private String timestamp;
     private String picture;
+    private int point;
+    private int quantity;
+
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     private int color = -1;
 
     public Message() {

@@ -163,6 +163,10 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         holder.imgAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Message message = messages.get(position);
+                int quantity = message.getQuantity();
+                message.setQuantity(quantity + 1);
+
                 listener.onAddClicked(position);
             }
         });
@@ -170,6 +174,12 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         holder.imgSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Message message = messages.get(position);
+                int quantity = message.getQuantity();
+                if (quantity > 0) {
+                    message.setQuantity(quantity - 1);
+                }
+
                 listener.onSubtractClicked(position);
             }
         });
@@ -268,17 +278,30 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
     public void toggleSelection(int pos) {
         currentSelectedIndex = pos;
-        if (selectedItems.get(pos, false)) {
-            selectedItems.delete(pos);
-            animationItemsIndex.delete(pos);
-        } else {
+//        if (selectedItems.get(pos, false)) {
+//            selectedItems.delete(pos);
+//            animationItemsIndex.delete(pos);
+//        } else {
+//            selectedItems.put(pos, true);
+//            animationItemsIndex.put(pos, true);
+//        }
+        Message message = messages.get(pos);
+        if (message.getQuantity() > 0) {
             selectedItems.put(pos, true);
             animationItemsIndex.put(pos, true);
+        } else {
+            selectedItems.delete(pos);
+            animationItemsIndex.delete(pos);
         }
+
         notifyItemChanged(pos);
     }
 
     public void clearSelections() {
+        for (Message message : messages) {
+            message.setQuantity(0);
+        }
+
         reverseAllAnimations = true;
         selectedItems.clear();
         notifyDataSetChanged();
