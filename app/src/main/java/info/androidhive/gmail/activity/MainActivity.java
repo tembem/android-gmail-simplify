@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         if (count == 0) {
             actionMode.finish();
         } else {
-            actionMode.setTitle(String.valueOf(count));
+            actionMode.setTitle(String.valueOf(mAdapter.getSelectedItemPointTotal()));
             actionMode.invalidate();
         }
     }

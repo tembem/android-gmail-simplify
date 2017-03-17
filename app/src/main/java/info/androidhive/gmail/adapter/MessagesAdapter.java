@@ -314,6 +314,15 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         return selectedItems.size();
     }
 
+    public int getSelectedItemPointTotal() {
+        int total = 0;
+        for (Message message : messages) {
+            total += message.getPoint() * message.getQuantity();
+        }
+
+        return total;
+    }
+
     public List<Integer> getSelectedItems() {
         List<Integer> items =
                 new ArrayList<>(selectedItems.size());
