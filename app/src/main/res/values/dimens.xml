@@ -8,4 +8,6 @@
     <dimen name="icon_star">25dp</dimen>
     <dimen name="icon_text">22dp</dimen>
     <dimen name="timestamp">12dp</dimen>
+    <dimen name="padding_list_text">8dp</dimen>
+    <dimen name="calculation_width_height">30dp</dimen>
 </resources>

@@ -47,7 +47,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         public TextView subject, message, iconText, timestamp;
-        public ImageView iconImp, imgProfile;
+        public ImageView imgProfile, imgAdd, imgSubtract;
         public LinearLayout messageContainer;
         public RelativeLayout iconContainer, iconBack, iconFront;
 
@@ -60,8 +60,10 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             timestamp = (TextView) view.findViewById(R.id.timestamp);
             iconBack = (RelativeLayout) view.findViewById(R.id.icon_back);
             iconFront = (RelativeLayout) view.findViewById(R.id.icon_front);
-            iconImp = (ImageView) view.findViewById(R.id.icon_star);
+//            iconImp = (ImageView) view.findViewById(R.id.icon_star);
             imgProfile = (ImageView) view.findViewById(R.id.icon_profile);
+            imgAdd = (ImageView) view.findViewById(R.id.button_add);
+            imgSubtract = (ImageView) view.findViewById(R.id.button_subtract);
             messageContainer = (LinearLayout) view.findViewById(R.id.message_container);
             iconContainer = (RelativeLayout) view.findViewById(R.id.icon_container);
             view.setOnLongClickListener(this);
@@ -122,6 +124,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
         // apply click events
         applyClickEvents(holder, position);
+
+        holder.imgAdd.setImageResource(R.drawable.bg_circle);
+        holder.imgSubtract.setImageResource(R.drawable.bg_circle);
     }
 
     private void applyClickEvents(MyViewHolder holder, final int position) {
@@ -132,12 +137,12 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             }
         });
 
-        holder.iconImp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onIconImportantClicked(position);
-            }
-        });
+//        holder.iconImp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                listener.onIconImportantClicked(position);
+//            }
+//        });
 
         holder.messageContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +157,20 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
                 listener.onRowLongClicked(position);
                 view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
+            }
+        });
+
+        holder.imgAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onAddClicked(position);
+            }
+        });
+
+        holder.imgSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onSubtractClicked(position);
             }
         });
     }
@@ -295,5 +314,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         void onMessageRowClicked(int position);
 
         void onRowLongClicked(int position);
+
+        void onAddClicked(int position);
+
+        void onSubtractClicked(int position);
     }
 }

@@ -24,6 +24,7 @@
             android:id="@+id/txt_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_list_text"
             android:ellipsize="end"
             android:lines="1"
             android:textColor="@color/from"
@@ -34,13 +35,20 @@
             android:id="@+id/txt_secondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_list_text"
             android:ellipsize="end"
             android:lines="1"
             android:textColor="@color/subject"
             android:textSize="@dimen/msg_text_secondary"
             android:textStyle="bold" />
 
-
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/timestamp"
+            android:textSize="@dimen/timestamp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -92,21 +100,26 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/timestamp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/button_add"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:textColor="@color/timestamp"
-        android:textSize="@dimen/timestamp"
-        android:textStyle="bold" />
+        android:layout_width="@dimen/calculation_width_height"
+        android:layout_height="@dimen/calculation_width_height" />
 
     <ImageView
-        android:id="@+id/icon_star"
-        android:layout_width="@dimen/icon_star"
-        android:layout_height="@dimen/icon_star"
+        android:id="@+id/button_subtract"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:tint="@color/icon_tint_normal" />
+        android:layout_width="@dimen/calculation_width_height"
+        android:layout_height="@dimen/calculation_width_height" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/icon_star"-->
+        <!--android:layout_width="@dimen/icon_star"-->
+        <!--android:layout_height="@dimen/icon_star"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:tint="@color/icon_tint_normal" />-->
 
 </RelativeLayout>

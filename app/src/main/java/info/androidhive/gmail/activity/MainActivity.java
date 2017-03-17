@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -76,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     }
                 }
         );
+
+
     }
 
     /**
@@ -207,6 +210,28 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         enableActionMode(position);
     }
 
+    @Override
+    public void onAddClicked(int position) {
+        Message message = messages.get(position);
+        messages.set(position, message);
+        mAdapter.notifyDataSetChanged();
+
+        enableActionMode(position);
+
+        Toast.makeText(getApplicationContext(), "Add: " + message.getSubject(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSubtractClicked(int position) {
+        Message message = messages.get(position);
+        messages.set(position, message);
+        mAdapter.notifyDataSetChanged();
+
+        enableActionMode(position);
+
+        Toast.makeText(getApplicationContext(), "Subtract: " + message.getSubject(), Toast.LENGTH_SHORT).show();
+    }
+
     private void enableActionMode(int position) {
         if (actionMode == null) {
             actionMode = startSupportActionMode(actionModeCallback);
@@ -273,12 +298,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     // deleting the messages from recycler view
     private void deleteMessages() {
-        mAdapter.resetAnimationIndex();
-        List<Integer> selectedItemPositions =
-                mAdapter.getSelectedItems();
-        for (int i = selectedItemPositions.size() - 1; i >= 0; i--) {
-            mAdapter.removeData(selectedItemPositions.get(i));
-        }
-        mAdapter.notifyDataSetChanged();
+//        mAdapter.resetAnimationIndex();
+//        List<Integer> selectedItemPositions =
+//                mAdapter.getSelectedItems();
+//        for (int i = selectedItemPositions.size() - 1; i >= 0; i--) {
+//            mAdapter.removeData(selectedItemPositions.get(i));
+//        }
+//        mAdapter.notifyDataSetChanged();
     }
 }
