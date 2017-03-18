@@ -1,5 +1,6 @@
 package info.androidhive.gmail.activity;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -306,5 +307,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 //            mAdapter.removeData(selectedItemPositions.get(i));
 //        }
 //        mAdapter.notifyDataSetChanged();
+        Intent intent = new Intent(MainActivity.this, ConfirmationActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("store_id", 102);
+        startActivity(intent);
     }
 }

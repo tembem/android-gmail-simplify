@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+android:paddingLeft="16dp"
+android:paddingRight="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="32dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    >
+
+
+        >
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp" >
+
+        <TextView
+            android:text="ID"
+            android:textSize="16sp"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="1234567890"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp" >
+
+        <TextView
+            android:id="@+id/customer_name"
+            android:text="NAMA"
+            android:textSize="16sp"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="AKRIAN SUPER AKRIAN AKRIAN"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvExchange"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:text="ANDA AKAN MENUKARKAN"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvExchangePoint"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:text="10 POIN"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:textAlignment="center"
+        android:text="item here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+
+    <TextView
+        android:id="@+id/tvConfirmPassword"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:textAlignment="center"
+        android:text="MASUKKAN PASSWORD ANDA UNTUK MELANJUTKAN"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<EditText-->
+        <!--android:id="@+id/edit_username"-->
+        <!--android:layout_margin="16dp"-->
+        <!--android:padding="16dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:maxLines="1"-->
+        <!--android:textSize="18sp"-->
+        <!--android:textCursorDrawable="@null"-->
+        <!--android:inputType="numberPassword"-->
+        <!--android:background="@drawable/text_border"-->
+        <!--/>-->
+
+    <com.alimuzaffar.lib.pin.PinEntryEditText
+        android:padding="16dp"
+        android:id="@+id/txt_pin_entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:digits="1234567890"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:textIsSelectable="false"
+        android:textSize="32sp"
+        app:pinLineColors="@android:color/black"
+        app:pinBackgroundIsSquare="true"
+        />
+    <!--app:pinBackgroundDrawable="@drawable/bg_pin" //optional, use your own pin char background-->
+    <!--app:pinAnimationType="popIn|fromBottom|none" //optional, default popIn-->
+    <!--app:pinCharacterMask="*" //optional, default bullet-->
+    <!--app:pinSingleCharHint="#" //optional, hint for each characters-->
+    <!--app:pinTextBottomPadding="@dimen/space" //optional, space between character and bottom line.-->
+    <!--app:pinLineStroke="2dp" //the stroke (height) of the bottom line by default.-->
+    <!--app:pinLineStrokeSelected="4dp" //the stroke (height) of the bottom line when field is focused.-->
+    <!--app:pinBackgroundIsSquare="true|false" //optional, if you want the background drawable to be a square or circle width of each digit will be set to match the height of the widget.-->
+    <!--app:pinLineColors="@color/pin_line_colors" //optional-->
+    <RelativeLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:text="Submit"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+    </LinearLayout>
+
